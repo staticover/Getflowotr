@@ -1,0 +1,298 @@
+<title>Flow Outreach</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: black editorial page, oversized expanded headlines, thin rules between bands, one blue accent */
+:root{
+  --ink:#050608;
+  --ink-2:#0d1016;
+  --line:#1e232d;
+  --paper:#f4f6fa;
+  --mute:#8a93a6;
+  --blue:#2f6bff;
+  --blue-soft:#7aa2ff;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.wide{font-family:var(--display);font-stretch:125%;font-weight:800;letter-spacing:-.01em;line-height:.95;text-wrap:balance}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:34px;height:34px}
+.brand b{font-family:var(--display);font-stretch:125%;font-weight:600;letter-spacing:.12em;font-size:15px}
+.links{display:flex;gap:28px;font-size:14px}
+.links a{text-decoration:none;color:var(--mute);transition:color .2s}
+.links a:hover{color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--blue);transition:background .2s,color .2s;cursor:pointer;font-family:var(--body)}
+.btn:hover{background:transparent;color:var(--blue-soft)}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--paper)}
+.btn.ghost:hover{border-color:var(--paper)}
+.btn.sm{padding:10px 18px;font-size:14px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--blue-soft);outline-offset:3px}
+
+/* hero */
+.hero{position:relative;padding-block:96px 72px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero .burst{position:absolute;right:-180px;top:50%;width:720px;height:720px;transform:translateY(-50%);opacity:.9;pointer-events:none}
+.hero .burst svg{width:100%;height:100%;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-size:clamp(52px,10.5vw,148px);margin:20px 0 28px;position:relative}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{max-width:520px;font-size:19px;color:#c9cfdb;margin:0 0 36px;position:relative}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;position:relative}
+
+/* ticker */
+.ticker{border-bottom:1px solid var(--line);overflow:hidden;padding-block:18px;white-space:nowrap}
+.ticker div{display:inline-flex;gap:48px;animation:slide 30s linear infinite;font-family:var(--display);font-stretch:125%;font-weight:700;font-size:22px;color:var(--mute)}
+.ticker span::after{content:"✳";color:var(--blue);margin-left:48px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section.band{padding-block:96px;border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:end;margin-bottom:56px}
+.head h2{font-size:clamp(36px,5.5vw,72px);margin:12px 0 0}
+.head p{color:#c9cfdb;max-width:520px;margin:0;justify-self:end}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+.svc{padding:36px 32px 40px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:24px;min-width:0}
+.svc:nth-child(odd){border-right:1px solid var(--line)}
+.svc:nth-child(even){padding-left:32px}
+.svc .tag{font-family:var(--mono);font-size:12px;color:var(--blue-soft);padding-top:8px}
+.svc h3{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:26px;margin:0 0 10px;line-height:1.1}
+.svc p{margin:0;color:var(--mute)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.step{padding:32px 24px 8px 0;border-right:1px solid var(--line);min-width:0}
+.step + .step{padding-left:24px}
+.step:last-child{border-right:0}
+.step .n{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:56px;color:var(--blue);line-height:1}
+.step h3{font-family:var(--display);font-stretch:112%;font-size:22px;margin:20px 0 8px}
+.step p{margin:0;color:var(--mute);font-size:15px}
+
+/* why / statement */
+.statement{background:var(--paper);color:var(--ink)}
+.statement .label{color:#5b6475}
+.statement h2{font-size:clamp(34px,5.6vw,80px);margin:16px 0 40px;max-width:16ch}
+.statement h2 span{color:var(--blue)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid #cfd5e0;padding-top:32px}
+.pillars h3{font-family:var(--display);font-stretch:112%;font-size:20px;margin:0 0 8px}
+.pillars p{margin:0;color:#4a5263;font-size:15px}
+
+/* cta */
+.cta{text-align:left}
+.cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start}
+.cta h2{font-size:clamp(44px,8vw,112px);margin:16px 0 24px}
+.cta h2 em{font-style:normal;color:var(--blue)}
+.cta p{color:#c9cfdb;max-width:440px}
+form{display:grid;gap:14px;background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:28px}
+label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:grid;gap:8px}
+input,textarea,select{font:inherit;font-size:16px;color:var(--paper);background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:13px 14px;width:100%;text-transform:none;letter-spacing:0;font-family:var(--body)}
+textarea{min-height:110px;resize:vertical}
+.sent{font-size:15px;color:var(--blue-soft)}
+
+/* footer */
+footer{padding-block:56px 40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.foot .logo svg{width:150px;height:150px}
+.foot h4{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 16px;font-weight:500}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.foot ul a{text-decoration:none;color:#c9cfdb}
+.foot ul a:hover{color:var(--paper)}
+.word{font-family:var(--display);font-stretch:125%;font-weight:500;font-size:clamp(56px,15vw,210px);letter-spacing:.06em;line-height:1;margin:48px 0 8px;color:var(--paper)}
+.word small{display:block;font-size:.17em;letter-spacing:.6em;font-weight:400;margin-top:14px;color:var(--mute)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;font-size:14px;color:var(--mute)}
+.legal a{color:var(--paper);text-underline-offset:4px;text-decoration-color:var(--blue)}
+.legal a:hover{color:var(--blue-soft)}
+
+@media (max-width:900px){
+  .links{display:none}
+  .head,.cta-grid,.foot{grid-template-columns:1fr}
+  .head p{justify-self:start}
+  .services{grid-template-columns:1fr}
+  .svc,.svc:nth-child(even){padding:28px 0;border-right:0}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{padding:28px 16px 24px 0!important;border-right:0;border-bottom:1px solid var(--line)}
+  .pillars{grid-template-columns:1fr}
+  .hero .burst{width:460px;height:460px;right:-200px;opacity:.5}
+  section.band{padding-block:72px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+  .nav .btn{display:none}
+  .hero{padding-block:64px 56px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero .burst svg,.ticker div{animation:none}
+}
+</style>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Flow Outreach home">
+      <svg class="sun" viewBox="0 0 200 200" data-rays="36" aria-hidden="true"></svg>
+      <b>FLOW</b>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Flow</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn sm" href="#contact">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="burst" aria-hidden="true"><svg class="sun" viewBox="0 0 200 200" data-rays="44"></svg></div>
+    <div class="wrap">
+      <div class="label">Digital marketing · Viral content studio</div>
+      <h1 class="wide">Content<br>that <em>moves</em><br>people.</h1>
+      <p>Flow Outreach plans, films and edits short-form content built to get watched, shared and remembered. We help brands get seen by the people who matter.</p>
+      <div class="ctas">
+        <a class="btn" href="#contact">Start a project →</a>
+        <a class="btn ghost" href="#services">See what we do</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div>
+      <span>TikTok</span><span>Instagram Reels</span><span>YouTube Shorts</span><span>LinkedIn</span><span>Facebook</span>
+      <span>TikTok</span><span>Instagram Reels</span><span>YouTube Shorts</span><span>LinkedIn</span><span>Facebook</span>
+    </div>
+  </div>
+
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">What we do</div>
+          <h2 class="wide">Built for<br>the feed.</h2>
+        </div>
+        <p>Everything you need to show up every week with content people actually stop for. Pick one service or let us run the whole thing.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><span class="tag">/01</span><div><h3>Content Strategy</h3><p>We study your audience and your niche, then map out the hooks, formats and topics most likely to take off.</p></div></div>
+        <div class="svc"><span class="tag">/02</span><div><h3>Short-Form Video</h3><p>Scripting, filming and fast-paced editing for Reels, TikTok and Shorts. Clean captions, sharp cuts, strong first seconds.</p></div></div>
+        <div class="svc"><span class="tag">/03</span><div><h3>Social Management</h3><p>Posting, scheduling and community replies across every platform, so your brand stays active without eating your time.</p></div></div>
+        <div class="svc"><span class="tag">/04</span><div><h3>Paid Amplification</h3><p>When a post starts working, we put budget behind it and push it to the right people at the right time.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="process">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="label">How it works</div>
+          <h2 class="wide">Find your<br>flow.</h2>
+        </div>
+        <p>A simple loop we run every month. Each round teaches us what your audience wants, and the next round gets better.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h3>Hook</h3><p>Research trends and your audience. Pick the ideas with the best shot.</p></div>
+        <div class="step"><div class="n">02</div><h3>Create</h3><p>Script, shoot and edit content that fits each platform.</p></div>
+        <div class="step"><div class="n">03</div><h3>Launch</h3><p>Post at the right time, engage early and boost what works.</p></div>
+        <div class="step"><div class="n">04</div><h3>Learn</h3><p>Review views, watch time and shares. Double down on the winners.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band statement" id="why">
+    <div class="wrap">
+      <div class="label">Why Flow</div>
+      <h2 class="wide">Attention is the new currency. <span>We help you earn it.</span></h2>
+      <div class="pillars">
+        <div><h3>Creators at heart</h3><p>We make content ourselves, every day. We know what holds attention because we test it on our own channels first.</p></div>
+        <div><h3>Speed matters</h3><p>Trends move fast. Our team turns ideas into finished posts in days, not weeks.</p></div>
+        <div><h3>Results you can see</h3><p>Clear monthly reports on reach, engagement and leads. No guessing about what your money is doing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta" id="contact">
+    <div class="wrap cta-grid">
+      <div>
+        <div class="label">Let's talk</div>
+        <h2 class="wide">Ready to<br><em>go viral?</em></h2>
+        <p>Tell us about your brand and where you want to grow. We'll get back to you within one business day with ideas.</p>
+      </div>
+      <form id="lead">
+        <label for="f-name">Name<input id="f-name" name="name" required placeholder="Your name"></label>
+        <label for="f-email">Email<input id="f-email" name="email" type="email" required placeholder="you@company.com"></label>
+        <label for="f-goal">What do you need?
+          <select id="f-goal" name="goal">
+            <option>Full content package</option>
+            <option>Short-form video</option>
+            <option>Social management</option>
+            <option>Strategy only</option>
+          </select>
+        </label>
+        <label for="f-msg">Message<textarea id="f-msg" name="message" placeholder="Tell us a little about your brand"></textarea></label>
+        <button class="btn" type="submit">Send message →</button>
+        <p class="sent" id="sent" hidden>Thanks! This form is a preview, so connect it to your email or CRM before launch.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="logo"><svg class="sun" viewBox="0 0 200 200" data-rays="40" aria-hidden="true"></svg></div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#why">Why Flow</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">YouTube</a></li><li><a href="#">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="word" aria-hidden="true">FLOW<small>OUTREACH</small></div>
+    <div class="legal">
+      <span>© 2026 Flow Outreach. All rights reserved.</span>
+      <span>Built by <a href="https://www.onstra.world" target="_blank" rel="noopener">Onstra</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Draw the Flow sunburst: tapered rays around an empty center
+document.querySelectorAll('svg.sun').forEach(svg=>{
+  const n=+svg.dataset.rays||40, cx=100, cy=100, r0=34, r1=96, w=3.2;
+  const ns='http://www.w3.org/2000/svg';
+  const defs=document.createElementNS(ns,'defs');
+  const id='g'+Math.random().toString(36).slice(2,7);
+  defs.innerHTML=`<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#cfd6e4"/><stop offset="1" stop-color="#9fb4e8"/></linearGradient>`;
+  svg.appendChild(defs);
+  let d='';
+  for(let i=0;i<n;i++){
+    const a=i/n*Math.PI*2, ca=Math.cos(a), sa=Math.sin(a);
+    const rm=r0+(r1-r0)*0.42;
+    const px=-sa*w, py=ca*w;
+    d+=`M${cx+ca*r0} ${cy+sa*r0}L${cx+ca*rm+px} ${cy+sa*rm+py}L${cx+ca*r1} ${cy+sa*r1}L${cx+ca*rm-px} ${cy+sa*rm-py}Z`;
+  }
+  const p=document.createElementNS(ns,'path');
+  p.setAttribute('d',d); p.setAttribute('fill',`url(#${id})`);
+  svg.appendChild(p);
+});
+document.getElementById('lead').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('sent').hidden=false;
+});
+</script>
